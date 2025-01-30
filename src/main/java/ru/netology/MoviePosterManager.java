@@ -26,17 +26,23 @@ public class MoviePosterManager {
         this.size = 0;
     }
 
-    void save(int minSize) {
+    public void save(int minSize) {
         if (movies.length < minSize) {
             int newSize = movies.length * 2;
             if (newSize < minSize) {
                 newSize = minSize;
             }
+
             MoviePoster[] newMovies = new MoviePoster[newSize];
-            if (size >= 0) System.arraycopy(movies, 0, newMovies, 0, size);
+
+            for (int i = 0; i < size; i++) {
+                newMovies[i] = movies[i];
+            }
+
             movies = newMovies;
         }
     }
+
 
     public void add(MoviePoster movie) {
         if (movie == null) {
