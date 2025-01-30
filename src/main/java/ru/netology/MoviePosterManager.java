@@ -1,3 +1,5 @@
+package ru.netology;
+
 import lombok.Getter;
 
 public class MoviePosterManager {
@@ -5,6 +7,14 @@ public class MoviePosterManager {
     private int size;
     @Getter
     private final int limit;
+
+    public int getSize() {
+        return size;
+    }
+
+    public MoviePoster[] getMovies() {
+        return movies;
+    }
 
     public MoviePosterManager() {
         this(5);
@@ -16,16 +26,14 @@ public class MoviePosterManager {
         this.size = 0;
     }
 
-    private void save(int minSize) {
+    void save(int minSize) {
         if (movies.length < minSize) {
             int newSize = movies.length * 2;
             if (newSize < minSize) {
                 newSize = minSize;
             }
             MoviePoster[] newMovies = new MoviePoster[newSize];
-            for (int i = 0; i < size; i++) {
-                newMovies[i] = movies[i];
-            }
+            if (size >= 0) System.arraycopy(movies, 0, newMovies, 0, size);
             movies = newMovies;
         }
     }
@@ -67,14 +75,6 @@ public class MoviePosterManager {
             result[length - 1 - i] = movies[startIndex + i];
         }
         return result;
-    }
-
-    private void reverse(MoviePoster[] array) {
-        for (int i = 0; i < array.length / 2; i++) {
-            MoviePoster temp = array[i];
-            array[i] = array[array.length - 1 - i];
-            array[array.length - 1 - i] = temp;
-        }
     }
 
 }
