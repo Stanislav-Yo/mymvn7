@@ -63,11 +63,9 @@ public class MoviePosterManager {
             startIndex = size - limit;
         }
 
-        int length;
+        int length = 0;
         if (limit >= size - startIndex) {
             length = size - startIndex;
-        } else {
-            length = limit;
         }
 
         MoviePoster[] result = new MoviePoster[length];
