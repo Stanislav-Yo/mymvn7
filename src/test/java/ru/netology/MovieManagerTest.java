@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class MovieManagerTest {
 
     @Test
-    public void addMovie0 () {
+    public void addMovie0() {
         MovieManager manager = new MovieManager();
 
         String[] expected = {};
@@ -16,7 +16,7 @@ public class MovieManagerTest {
     }
 
     @Test
-    public void addMovie1 () {
+    public void addMovie1() {
         MovieManager manager = new MovieManager();
 
         manager.addMovie("Film1");
@@ -28,7 +28,7 @@ public class MovieManagerTest {
     }
 
     @Test
-    public void addMovie3 () {
+    public void addMovie3() {
         MovieManager manager = new MovieManager();
 
         manager.addMovie("Film1");
@@ -95,7 +95,6 @@ public class MovieManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
 
 
 }
